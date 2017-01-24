@@ -6,7 +6,7 @@ import Button from '../Button/Button'
 const Header = () => {
   return (
     <div className="Header">
-      <h1>Header</h1>
+      <h1 className='main-header'>CHUCK NORRIS JOKE MACHINE</h1>
       <Button handleClick ={ ()=> logstuff()} />
     </div>
   );
