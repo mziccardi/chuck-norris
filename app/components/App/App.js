@@ -10,7 +10,8 @@ export default class Application extends Component {
     this.state = {
       randomJoke:'',
       numberOfJokes:'',
-      jokeArray:null
+      jokeArray: [],
+      walrus:100
     };
   }
 
@@ -24,6 +25,11 @@ export default class Application extends Component {
     })
   }
 
+  setJokeAmount(e){
+    const num = e.target.value
+    this.setState({ numberOfJokes:num })
+  }
+
 
 
   getJokes(numberOfJokes){
@@ -31,8 +37,8 @@ export default class Application extends Component {
     fetch(jokeURL).then((response)=>{
       return response.json()
     }).then((data)=>{
-      console.log(data.value)
       this.setState({jokeArray:data.value})
+      console.log(this.state.jokeArray)
 //       jokeArray.map((joke)=>{
 // 	return joke.joke
 // })
@@ -43,17 +49,16 @@ export default class Application extends Component {
     return(
       <div>
         <Header />
-        <div className = 'randomjoke'>
+        <div className='random-joke'>
           {this.state.randomJoke}
         </div>
-        <input className='number-of-jokes' type='number'
-          value={this.state.numberOfJokes}
-          onChange={(e)=>this.setState({numberOfJokes:e.target.value})}/>
-        <Link to='/jokes'>
-        <Button
-          getJokes={()=> this.getJokes(this.state.numberOfJokes)}/>
-        </Link>
-        {this.props.children}
+    {React.cloneElement(this.props.children,{
+      numberOfJokes:this.state.numberOfJokes,
+      randomJoke:this.state.randomJoke,
+      jokeArray:this.state.jokeArray,
+      setJokeAmount:this.setJokeAmount.bind(this),
+      getJokes:this.getJokes.bind(this)
+    })}
       </div>
     )
   }

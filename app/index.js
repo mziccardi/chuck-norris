@@ -14,8 +14,7 @@ import './styles.scss'
 const router = (
   <Router history = {hashHistory}>
     <Route path = '/' component = {App}>
-      {/* <IndexRoute component = {Home} /> */}
-      <Route path='/jokes' component={Jokes}/>
+      <IndexRoute component={Jokes}/>
       <Route path = '/settings'>
         <IndexRoute component ={Settings}/>
       </Route>
