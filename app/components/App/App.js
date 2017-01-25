@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import './app-style.scss'
 
 import Button from '../Button/Button'
 import Header from '../Header/Header'
@@ -49,8 +50,8 @@ export default class Application extends Component {
     return(
       <div>
         <Header />
-        <div className='random-joke'>
-          {this.state.randomJoke}
+        <div className='random-joke-container'>
+          <div className='random-joke'>{this.state.randomJoke}</div>
         </div>
     {React.cloneElement(this.props.children,{
       numberOfJokes:this.state.numberOfJokes,
