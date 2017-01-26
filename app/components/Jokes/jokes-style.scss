@@ -1,9 +1,24 @@
- button.get-joke-btn{
+@mixin buttons {
   background-color: rgb(192, 192, 192);
   border-radius: 8px;
   border: none;
   padding: 10px 40px;
   margin-right: 15px;
+}
+@mixin centers {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ button.get-joke-btn{
+   @include buttons;
+}
+.favorites{
+  @include centers;
+}
+.favorite-btn{
+  @include buttons;
 }
 
 .get-joke-btn:hover{
@@ -25,7 +40,5 @@
 }
 
 .UI{
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
+  @include centers;
 }

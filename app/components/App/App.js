@@ -10,9 +10,10 @@ export default class Application extends Component {
     super();
     this.state = {
       randomJoke:'',
-      numberOfJokes:'',
+      numberOfJokes: '' ,
       jokeArray: [],
-      walrus:100
+      favoriteJokes:[]
+
     };
   }
 
@@ -31,6 +32,13 @@ export default class Application extends Component {
     this.setState({ numberOfJokes:num })
   }
 
+  favoritedJokes(){
+    favoriteJokes.push({
+      joke:joke,
+      id:id,
+      favorite:true
+    })
+  }
 
 
   getJokes(numberOfJokes){
@@ -39,10 +47,6 @@ export default class Application extends Component {
       return response.json()
     }).then((data)=>{
       this.setState({jokeArray:data.value})
-      console.log(this.state.jokeArray)
-//       jokeArray.map((joke)=>{
-// 	return joke.joke
-// })
     })
   }
 
@@ -58,7 +62,9 @@ export default class Application extends Component {
       randomJoke:this.state.randomJoke,
       jokeArray:this.state.jokeArray,
       setJokeAmount:this.setJokeAmount.bind(this),
-      getJokes:this.getJokes.bind(this)
+      getJokes:this.getJokes.bind(this),
+      favoriteJokes:this.state.favoriteJokes,
+      favoritedJokes:this.favoritedJokes.bind(this)
     })}
       </div>
     )

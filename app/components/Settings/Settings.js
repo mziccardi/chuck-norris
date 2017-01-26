@@ -8,7 +8,7 @@ export default class Settings extends Component {
     render(){
     return(
       <div>
-        I AM Settings
+        <input type='checkbox' />
       </div>
     )
   }
