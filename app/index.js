@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory} from 'react-router'
+import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 //import home here. CREATE THAT SHIT have home do the random joke shit in it
 
 
@@ -13,7 +13,7 @@ import Favorites from '../app/components/Favorites/Favorites'
 import './styles.scss'
 
 const router = (
-  <Router history = {hashHistory}>
+  <Router history = {browserHistory}>
     <Route path = '/' component = {App}>
       <IndexRoute component={Jokes}/>
       <Route path = '/jokes' component={Jokes}/>
