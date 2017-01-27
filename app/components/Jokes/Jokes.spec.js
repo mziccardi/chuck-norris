@@ -15,8 +15,3 @@ describe('Header', function () {
     const wrapper = shallow(<Header />)
     assert.equal(wrapper.type(),'div')
   })
-  it('should have a settings button', ()=>{
-    const wrapper = shallow(<Header />)
-    expect(wrapper.find('button')).to.have.length(1)
-  })
-});
