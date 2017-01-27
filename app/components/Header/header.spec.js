@@ -6,8 +6,8 @@ import sinon from 'sinon'
 import Header from './Header';
 import Button from '../Button/Button'
 
-describe('Header', function () {
-  it('should display a single h1 tag', function () {
+describe('Header', ()=> {
+  it('should display a single h1 tag', ()=> {
     const wrapper = shallow(<Header/>);
     expect(wrapper.find('h1')).to.have.length(1);
   });
