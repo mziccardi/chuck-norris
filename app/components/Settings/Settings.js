@@ -22,6 +22,11 @@ export default class Settings extends Component {
                   <button className ='reset'>Reset</button>
                 </span>
             </span>
+            <div onChange ={this.props.toggleParental} >
+              Parental Controls:
+            ON:  <input type='radio' value='On'/>
+            OFF:  <input type='radio' value='Off'/>
+            </div>
       </div>
     )
   }

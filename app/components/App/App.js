@@ -10,11 +10,12 @@ export default class Application extends Component {
     super();
     this.state = {
       randomJoke:'',
-      numberOfJokes: '' ,
+      numberOfJokes:'' ,
       jokeArray: [],
       favoriteJokes:[],
-      firstName:'Chuck' || '',
-      lastName:'Norris' || ''
+      firstName:'Chuck' ,
+      lastName:'Norris',
+      parental:''
 
     };
   }
@@ -38,19 +39,24 @@ export default class Application extends Component {
     this.setState({ firstName:nameArray[0], lastName:nameArray[1] })
   }
 
-  // favoritedJokes(joke){
-  //   let favoriteJokes = this.state.favoriteJokes
-  //   let favorite = favoriteJokes.push({
-  //     joke: joke.joke,
-  //     id:joke.id
-  //   })
-  //   this.setState({favoriteJokes:favorite})
-  //   console.log(favorite)
-  // }
+  toggleParental(e){
+    console.log(e.target.value)
+    this.setState({parental:'limitTo=[explicit]'})
+  }
+
+  favoritedJokes(joke){
+    let favoriteJokes = this.state.favoriteJokes
+    let favorite = favoriteJokes.push({
+      joke: joke,
+      id: joke.id
+    })
+    this.setState({favoriteJokes:favoriteJokes})
+    console.log(favoriteJokes)
+  }
 
 
   getJokes(numberOfJokes){
-    const jokeURL = `http://api.icndb.com/jokes/random/${numberOfJokes}?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`
+    const jokeURL = `http://api.icndb.com/jokes/random/${numberOfJokes}?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}&${this.state.parental}`
     // const jokeURL = `http://api.icndb.com/jokes/random/firstName=${name}?escape=javascript`
 
     fetch(jokeURL).then((response)=>{
@@ -75,8 +81,9 @@ export default class Application extends Component {
       getJokes:this.getJokes.bind(this),
       favoriteJokes:this.state.favoriteJokes,
       fullName:this.state.name,
-      setName:this.setName.bind(this)
-      // favoritedJokes:this.favoritedJokes.bind(this)
+      setName:this.setName.bind(this),
+      toggleParental:this.toggleParental.bind(this),
+      favoritedJokes:this.favoritedJokes.bind(this)
     })}
       </div>
     )

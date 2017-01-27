@@ -8,8 +8,17 @@ export default class Jokes extends Component {
   render(){
 
     const someJokes = this.props.jokeArray.map((joke)=>{
-      return <li key={joke.id} className='single-joke'>{joke.joke}<input onChange={(joke)=>this.props.favoritedJokes(joke)}
-        type ='checkbox'/></li>
+      return (
+        <li
+          key={joke.id}
+          className='single-joke'>
+          {joke.joke}
+          <input
+            onChange={()=>{
+              this.props.favoritedJokes(joke)}}
+            type ='checkbox'/>
+        </li>
+      )
     })
     return(
       <div>
