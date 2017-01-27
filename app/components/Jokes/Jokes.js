@@ -13,7 +13,7 @@ export default class Jokes extends Component {
           key={joke.id}
           className='single-joke'>
           {joke.joke}
-          <input
+          <input className='checkbox'
             onChange={()=>{
               this.props.favoritedJokes(joke)}}
             type ='checkbox'/>
