@@ -46,10 +46,7 @@ export default class Application extends Component {
 
   favoritedJokes(joke){
     let favoriteJokes = this.state.favoriteJokes
-    let favorite = favoriteJokes.push({
-      joke: joke,
-      id: joke.id
-    })
+    let favorite = favoriteJokes.push(joke.joke)
     this.setState({favoriteJokes:favoriteJokes})
     console.log(favoriteJokes)
   }

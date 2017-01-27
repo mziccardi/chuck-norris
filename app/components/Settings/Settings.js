@@ -7,7 +7,7 @@ export default class Settings extends Component {
 
     render(){
     return(
-      <div>
+      <div className='settings-container'>
         <span>
           Set Name
           </span>
@@ -23,7 +23,7 @@ export default class Settings extends Component {
                 </span>
             </span>
             <div onChange ={this.props.toggleParental} >
-              Parental Controls:
+              Adult Only:
             ON:  <input type='radio' value='On'/>
             OFF:  <input type='radio' value='Off'/>
             </div>
