@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -d --watch",
-    "test": "mocha -w --compilers js:babel-core/register --require helpers/test-setup.js app/**/*.spec.js"
+    "test": "mocha -w --compilers js:babel-core/register --require helpers/test-setup.js app/**/*.spec.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +28,8 @@
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "@kadira/storybook": "^2.21.0"
   },
   "dependencies": {
     "react": "^15.4.2",
